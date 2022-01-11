@@ -1,0 +1,21 @@
+using GNSSTools
+using PyPlot
+pygui(true)
+
+fig = figure(figsize=(6.5,2))
+ax1 = fig.add_subplot(1,2,1)
+ax1.step(Array(1:10) .- 0.5, nh10, "k-")
+ax1.set_yticks([0, 1])
+ax1.set_ylim([-0.1, 1.1])
+ax1.set_xticks([0, 5, 10])
+title("(a)")
+xlabel("Time (ms)")
+ax2 = fig.add_subplot(1,2,2)
+ax2.step(Array(1:20) .- 0.5, nh20, "k-")
+ax2.set_yticks([0, 1])
+ax2.set_ylim([-0.1, 1.1])
+ax2.set_xticks([0, 10, 20])
+title("(b)")
+xlabel("Time (ms)")
+fig.subplots_adjust(hspace=0.2, wspace=0.3, top=0.88, left=0.08, right=0.93, bottom=0.22)
+savefig("figures/ch2_neuman_sequence.pdf", dpi=300)
